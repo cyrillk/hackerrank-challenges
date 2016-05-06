@@ -1,19 +1,21 @@
-package com.hackerrank.sample
+package com.hackerrank.thirtydays
 
 import java.io.ByteArrayInputStream
 
 import org.scalatest.{FunSuite, Matchers}
 
-class SampleTest extends FunSuite with Matchers {
+class OperatorsTest extends FunSuite with Matchers {
 
   test("Sample") {
 
     val actualInput = List(
-      "1"
+      "12.00",
+      "20",
+      "8"
     )
 
     val expectedOutput = List(
-      "1"
+      "The total meal cost is 15 dollars."
     )
 
     assertResults(actualInput, expectedOutput)
@@ -25,7 +27,7 @@ class SampleTest extends FunSuite with Matchers {
 
     Console.withIn(is) {
       Console.withOut(os) {
-        SampleTest.main(Array.empty[String])
+        OperatorsTest.main(Array.empty[String])
       }
     }
 
@@ -33,12 +35,16 @@ class SampleTest extends FunSuite with Matchers {
   }
 }
 
-private object SampleTest {
+private object OperatorsTest {
 
   def main(args: Array[String]) {
     val sc = new java.util.Scanner(Console.in)
-    val n = sc.nextInt()
+    val price = sc.nextLine().toDouble
+    val tip = sc.nextLine().toInt
+    val tax = sc.nextLine().toInt
 
-    println(n)
+    val total = Math.round(price + price * tip / 100 + price * tax / 100)
+
+    println(s"The total meal cost is $total dollars.")
   }
 }

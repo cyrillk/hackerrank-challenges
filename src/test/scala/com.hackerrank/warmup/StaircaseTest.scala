@@ -2,7 +2,7 @@ package com.hackerrank.warmup
 
 import java.io.ByteArrayInputStream
 
-import com.hackerrank.warmup.Solution._
+import com.hackerrank.warmup.StaircaseTest._
 import org.scalatest.{FunSuite, Matchers}
 
 class StaircaseTest extends FunSuite with Matchers {
@@ -35,7 +35,7 @@ class StaircaseTest extends FunSuite with Matchers {
   }
 }
 
-private object Solution {
+private object StaircaseTest {
 
   def main(args: Array[String]) {
     val sc = new java.util.Scanner(Console.in)

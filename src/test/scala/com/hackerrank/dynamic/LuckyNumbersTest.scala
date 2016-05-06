@@ -2,19 +2,52 @@ package com.hackerrank.dynamic
 
 import java.io.ByteArrayInputStream
 
+import com.hackerrank.dynamic.LuckyNumbersTest._
 import org.scalatest.{FunSuite, Matchers}
-import LuckyNumbersTest._
+
+import scala.io.StdIn
 
 class LuckyNumbersTest extends FunSuite with Matchers {
 
   test("Sample") {
 
     val actualInput = List(
-      "1"
+      "2",
+      "1 20",
+      "120 130"
     )
 
     val expectedOutput = List(
+      "4",
       "1"
+    )
+
+    assertResults(actualInput, expectedOutput)
+  }
+
+  test("Many") {
+
+    val actualInput = List(
+      "1",
+      s"${Int.MaxValue} ${Int.MaxValue + 100000L}"
+    )
+
+    val expectedOutput = List(
+      "8906"
+    )
+
+    assertResults(actualInput, expectedOutput)
+  }
+
+  test("Too Many") {
+
+    val actualInput = List(
+      "1",
+      s"305402977547472311 387592951340431309"
+    )
+
+    val expectedOutput = List(
+      "5504086913485671"
     )
 
     assertResults(actualInput, expectedOutput)
@@ -36,10 +69,41 @@ class LuckyNumbersTest extends FunSuite with Matchers {
 
 private object LuckyNumbersTest {
 
-  def main(args: Array[String]) {
-    val sc = new java.util.Scanner(Console.in)
-    val n = sc.nextInt()
+  private def stream(i: Long = 1): Stream[Long] = i #:: stream(i + 1)
 
-    println(n)
+  // "9999999999999999999".map(_ - 48).map(d => d * d).sum = 1539
+  private val primes = (1 to 1522).filter(p => isPrime(p)).toSet
+
+  def main(args: Array[String]) {
+
+    val n = StdIn.readLine().toInt
+
+    for (_ <- 0 until n) {
+
+      val line = StdIn.readLine()
+      val values = line.split(" ", 2)
+
+      val result = stream(values.head.toLong).takeWhile(_ <= values.last.toLong) filter {
+        case p if p < 10 => false
+        case p if p > 10 =>
+          val digits = p.toString.map(_ - 48) // .filter(_ != 0)
+          primes.contains(digits.sum) && primes.contains(digits.map(d => d * d).sum)
+        // isPrime(digits.sum) && isPrime(digits.map(d => d * d).sum)
+        case _ => false
+      }
+
+      println(result.size)
+    }
+  }
+
+  private def isPrime(p: Long): Boolean = {
+    p match {
+      case 1 => false
+      case 2 => true
+      case n if (n & 1) == 0 => false // to catch odd numbers
+      case n =>
+        val root = Math.ceil(Math.sqrt(n)).toInt
+        !(3 to root).exists(p % _ == 0)
+    }
   }
 }
