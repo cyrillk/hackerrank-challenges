@@ -75,23 +75,19 @@ private object CommonManagerTest {
     while (sc.hasNextLine)
       lines.append(sc.nextLine())
 
-    val root: Set[Employee] = lines.foldLeft(Set.empty[Employee]) { case (e, line) =>
-      val names = line.split(" ", 2)
-      update(e, names(0), names(1))
-    }
+    val root: Set[Employee] = add(lines)
 
     val ff = findManagers(root, first)
     val ss = findManagers(root, second)
     val result = ff.intersect(ss).head
+
     println(result)
   }
 
-  private def append(root: Set[Employee], manager: String, resource: String): Set[Employee] = {
-    root map {
-      case s if s.name == manager =>
-        Employee(s.name, s.reporters + Employee(resource))
-      case s =>
-        Employee(s.name, append(s.reporters, manager, resource))
+  private def add(lines: Seq[String]): Set[Employee] = {
+    lines.foldLeft(Set.empty[Employee]) { case (tree, line) =>
+      val names = line.split(" ", 2) // get a pair of names
+      update(tree, names(0), names(1))
     }
   }
 
@@ -102,6 +98,14 @@ private object CommonManagerTest {
     }
   }
 
+  private def append(root: Set[Employee], manager: String, resource: String): Set[Employee] = {
+    root map {
+      case person if person.name == manager =>
+        Employee(person.name, person.reporters + Employee(resource))
+      case person =>
+        Employee(person.name, append(person.reporters, manager, resource))
+    }
+  }
   private def findManagers(employees: Set[Employee], name: String): Seq[String] = {
 
     employees.foldLeft(Seq.empty[String]) {

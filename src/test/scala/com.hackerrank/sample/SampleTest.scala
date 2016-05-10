@@ -6,7 +6,7 @@ import org.scalatest.{FunSuite, Matchers}
 
 class SampleTest extends FunSuite with Matchers {
 
-  test("Sample") {
+  test("Sample scenario") {
 
     val actualInput = List(
       "1"
