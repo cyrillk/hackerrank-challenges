@@ -37,8 +37,8 @@ private object SampleTest {
 
   def main(args: Array[String]) {
     val sc = new java.util.Scanner(Console.in)
-    val n = sc.nextInt()
+    val count = sc.nextLine().trim.toInt
 
-    println(n)
+    println(count)
   }
 }
