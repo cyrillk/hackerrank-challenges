@@ -1,8 +1,8 @@
-package com.hackerrank.warmup
+package hackerrank.warmup
 
 import java.io.ByteArrayInputStream
 
-import com.hackerrank.warmup.StaircaseTest._
+import hackerrank.warmup.StaircaseTest._
 import org.scalatest.{FunSuite, Matchers}
 
 class StaircaseTest extends FunSuite with Matchers {

@@ -1,8 +1,8 @@
-package com.hackerrank.warmup
+package hackerrank.warmup
 
 import java.io.ByteArrayInputStream
 
-import com.hackerrank.warmup.PlusMinusTest._
+import hackerrank.warmup.PlusMinusTest._
 import org.scalatest.{FunSuite, Matchers}
 
 class PlusMinusTest extends FunSuite with Matchers {

@@ -1,6 +1,6 @@
-package com.hackerrank.warmup
+package hackerrank.warmup
 
-import com.hackerrank.warmup.AVeryBigSumTest._
+import hackerrank.warmup.AVeryBigSumTest._
 import org.scalatest.{BeforeAndAfter, FunSuite, Matchers}
 
 class AVeryBigSumTest extends FunSuite with Matchers with BeforeAndAfter {

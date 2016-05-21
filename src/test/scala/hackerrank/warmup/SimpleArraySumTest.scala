@@ -1,6 +1,6 @@
-package com.hackerrank.warmup
+package hackerrank.warmup
 
-import com.hackerrank.warmup.SimpleArraySumTest._
+import hackerrank.warmup.SimpleArraySumTest._
 import org.scalatest.{BeforeAndAfter, FunSuite, Matchers}
 
 class SimpleArraySumTest extends FunSuite with Matchers with BeforeAndAfter {

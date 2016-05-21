@@ -1,6 +1,7 @@
-package com.hackerrank.sample
+package sample
 
 import org.scalatest.{FlatSpec, Matchers}
+import sample.matchers.SystemInputOutputMatcher
 
 class SampleSpec extends FlatSpec with Matchers with SystemInputOutputMatcher {
 

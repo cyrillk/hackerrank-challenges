@@ -1,7 +1,7 @@
-package com.hackerrank.challenges
+package hackerrank.challenges
 
-import com.hackerrank.sample.SystemInputOutputMatcher
 import org.scalatest.{FlatSpec, Matchers}
+import sample.matchers.SystemInputOutputMatcher
 
 import scala.collection.mutable
 

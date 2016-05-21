@@ -1,4 +1,4 @@
-package com.hackerrank.sample
+package sample.matchers
 
 import java.io.ByteArrayInputStream
 

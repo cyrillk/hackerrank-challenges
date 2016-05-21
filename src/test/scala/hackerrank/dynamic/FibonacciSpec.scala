@@ -1,11 +1,11 @@
-package com.hackerrank.dynamic
+package hackerrank.dynamic
 
-import com.hackerrank.sample.SystemInputOutputMatcher
 import org.scalatest.{FlatSpec, Matchers}
+import sample.matchers.SystemInputOutputMatcher
 
-class FibonacciNaiveSpec extends FlatSpec with Matchers with SystemInputOutputMatcher {
+class FibonacciSpec extends FlatSpec with Matchers with SystemInputOutputMatcher {
 
-  private def toAssert = assertResults(FibonacciNaiveSpec.main(Array.empty[String])) _
+  private def toAssert = assertResults(FibonacciSpec.main(Array.empty[String])) _
 
   "Scenario #1" should "pass" in {
 
@@ -34,20 +34,18 @@ class FibonacciNaiveSpec extends FlatSpec with Matchers with SystemInputOutputMa
   }
 }
 
-private object FibonacciNaiveSpec {
+private object FibonacciSpec {
 
   def main(args: Array[String]) {
     val sc = new java.util.Scanner(Console.in)
     val number = sc.nextLine().trim.toInt
 
-    println(search(number))
-  }
-
-  private def search(num: Long): Long = {
-    num match {
-      case 0 => 0
-      case 1 => 1
-      case _ => search(num - 1) + search(num - 2)
+    val result = (0 to number).foldLeft(Map.empty[Int, Long]) {
+      case (m, 0) => m + (0 -> 0)
+      case (m, 1) => m + (1 -> 1)
+      case (m, n) => m + (n -> (m(n - 1) + m(n - 2)))
     }
+
+    println(result(number))
   }
 }

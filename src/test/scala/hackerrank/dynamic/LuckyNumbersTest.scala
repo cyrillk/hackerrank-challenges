@@ -1,8 +1,8 @@
-package com.hackerrank.dynamic
+package hackerrank.dynamic
 
 import java.io.ByteArrayInputStream
 
-import com.hackerrank.dynamic.LuckyNumbersTest._
+import hackerrank.dynamic.LuckyNumbersTest._
 import org.scalatest.{FunSuite, Matchers}
 
 import scala.io.StdIn

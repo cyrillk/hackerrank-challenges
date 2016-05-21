@@ -1,4 +1,4 @@
-package com.hackerrank.dynamic
+package hackerrank.dynamic
 
 import java.io.ByteArrayInputStream
 

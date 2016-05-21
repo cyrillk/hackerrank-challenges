@@ -1,7 +1,7 @@
-package com.hackerrank.dynamic
+package hackerrank.dynamic
 
-import com.hackerrank.sample.SystemInputOutputMatcher
 import org.scalatest.{FlatSpec, Matchers}
+import sample.matchers.SystemInputOutputMatcher
 
 /**
   * https://www.hackerrank.com/challenges/coin-change

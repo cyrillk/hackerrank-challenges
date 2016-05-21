@@ -1,9 +1,9 @@
-package com.hackerrank.warmup
+package hackerrank.warmup
 
 import java.io.ByteArrayInputStream
 import java.text.SimpleDateFormat
 
-import com.hackerrank.warmup.TimeConversionTest._
+import hackerrank.warmup.TimeConversionTest._
 import org.scalatest.{FunSuite, Matchers}
 
 class TimeConversionTest extends FunSuite with Matchers {

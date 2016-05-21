@@ -1,8 +1,8 @@
-package com.hackerrank.warmup
+package hackerrank.warmup
 
 import java.io.ByteArrayInputStream
 
-import com.hackerrank.warmup.DiagonalDifferenceTest._
+import hackerrank.warmup.DiagonalDifferenceTest._
 import org.scalatest.{BeforeAndAfter, FunSuite, Matchers}
 
 class DiagonalDifferenceTest extends FunSuite with Matchers with BeforeAndAfter {

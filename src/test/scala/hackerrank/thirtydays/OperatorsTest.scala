@@ -1,4 +1,4 @@
-package com.hackerrank.thirtydays
+package hackerrank.thirtydays
 
 import java.io.ByteArrayInputStream
 

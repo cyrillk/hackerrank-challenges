@@ -1,4 +1,4 @@
-package com.hackerrank.implementation
+package hackerrank.implementation
 
 import java.io.ByteArrayInputStream
 
