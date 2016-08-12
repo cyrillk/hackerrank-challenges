@@ -41,12 +41,12 @@ class CoinChangeNaiveSpec extends FlatSpec with Matchers with SystemInputOutputM
 
 private object CoinChangeNaiveSpec {
 
-  private def search(amount: Int, coins: Array[Int], m: Int): Int = {
+  private def countChange(amount: Int, coins: List[Int]): Int = {
+
     (amount, coins) match {
       case (0, _) => 1
-      case (n, _) if n < 0 => 0
-      case (n, c) if n > 0 && m == c.length => 0
-      case (n, c) => search(n - c(m), c, m) + search(n, c, m + 1)
+      case (m, a :: b) if m > 0 => countChange(amount - a, coins) + countChange(amount, b)
+      case _ => 0
     }
   }
 
@@ -59,7 +59,7 @@ private object CoinChangeNaiveSpec {
 
     val coins = sc.nextLine().split(" ", m).map(_.trim.toInt)
 
-    val result = search(n, coins, 0)
+    val result = countChange(n, coins.toList)
 
     println(result)
   }
