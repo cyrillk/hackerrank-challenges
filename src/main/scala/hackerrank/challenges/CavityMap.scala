@@ -1,36 +1,8 @@
 package hackerrank.challenges
 
-import org.scalatest.{FlatSpec, Matchers}
-import sample.matchers.SystemInputOutputMatcher
-
 import scala.collection.mutable
 
-class CavityMapSpec extends FlatSpec with Matchers with SystemInputOutputMatcher {
-
-  private def toAssert = assertResults(CavityMapSpec.main(Array.empty[String])) _
-
-  "Scenario #1" should "pass" in {
-
-    val actualInput = List(
-      "4",
-      "1112",
-      "1912",
-      "1892",
-      "1234"
-    )
-
-    val expectedOutput = List(
-      "1112",
-      "1X12",
-      "18X2",
-      "1234"
-    )
-
-    toAssert(actualInput, expectedOutput)
-  }
-}
-
-private object CavityMapSpec {
+object CavityMap {
 
   def main(args: Array[String]) {
     val sc = new java.util.Scanner(Console.in)

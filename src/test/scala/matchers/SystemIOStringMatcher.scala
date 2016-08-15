@@ -1,4 +1,4 @@
-package sample.matchers
+package matchers
 
 import java.io.ByteArrayInputStream
 
@@ -7,7 +7,11 @@ import org.scalatest.Matchers
 trait SystemIOStringMatcher extends Matchers {
 
   protected def assertResults(main: => Unit)(actualInput: String, expectedOutput: String): Unit = {
-    val is = new ByteArrayInputStream(actualInput.getBytes)
+
+    val actualInputTrimmed = actualInput.trim
+    val expectedOutputTrimmed = expectedOutput.trim
+
+    val is = new ByteArrayInputStream(actualInputTrimmed.getBytes)
     val os = new java.io.ByteArrayOutputStream()
 
     Console.withIn(is) {
@@ -16,8 +20,8 @@ trait SystemIOStringMatcher extends Matchers {
       }
     }
 
-    println(expectedOutput)
+    println(expectedOutputTrimmed)
 
-    expectedOutput shouldEqual os.toString.dropRight(1)
+    expectedOutputTrimmed shouldEqual os.toString.dropRight(1)
   }
 }
