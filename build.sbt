@@ -1,16 +1,16 @@
 name := "hackerrank-challenges"
 
-organization := "com.hackerrank"
+organization := "hackerrank"
 
 version := "1.0"
 
 scalaVersion := "2.11.8"
 
 libraryDependencies ++= Seq(
-  "org.scalatest" %% "scalatest" % "2.2.6" % "test",
+  "org.scalatest" %% "scalatest" % "3.0.0" % "test",
   "org.mockito" % "mockito-core" % "1.10.19" % "test"
 )
 
 scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation", "-encoding", "utf8")
 
-initialCommands := "import com.hackerrank._"
+initialCommands := "import hackerrank._"

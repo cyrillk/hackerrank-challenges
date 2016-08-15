@@ -2,6 +2,9 @@ package hackerrank.challenges
 
 import scala.collection.mutable
 
+/**
+  * https://www.hackerrank.com/challenges/cavity-map
+  */
 object CavityMap {
 
   def main(args: Array[String]) {
