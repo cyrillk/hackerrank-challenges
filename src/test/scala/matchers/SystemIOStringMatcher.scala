@@ -6,10 +6,9 @@ import org.scalatest.Matchers
 
 trait SystemIOStringMatcher extends Matchers {
 
-  protected def assertResults(main: => Unit)(actualInput: String, expectedOutput: String): Unit = {
+  protected def retrieveResults(main: => Unit)(actualInput: String): String = {
 
     val actualInputTrimmed = actualInput.trim
-    val expectedOutputTrimmed = expectedOutput.trim
 
     val is = new ByteArrayInputStream(actualInputTrimmed.getBytes)
     val os = new java.io.ByteArrayOutputStream()
@@ -20,8 +19,15 @@ trait SystemIOStringMatcher extends Matchers {
       }
     }
 
+    os.toString.dropRight(1)
+  }
+
+  protected def assertResults(main: => Unit)(actualInput: String, expectedOutput: String): Unit = {
+
+    val expectedOutputTrimmed = expectedOutput.trim
+
     println(expectedOutputTrimmed)
 
-    expectedOutputTrimmed shouldEqual os.toString.dropRight(1)
+    expectedOutputTrimmed shouldEqual retrieveResults(main)(actualInput)
   }
 }

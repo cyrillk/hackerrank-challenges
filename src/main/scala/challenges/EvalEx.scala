@@ -1,4 +1,4 @@
-package hackerrank.challenges
+package challenges
 
 /**
   * https://www.hackerrank.com/challenges/eval-ex

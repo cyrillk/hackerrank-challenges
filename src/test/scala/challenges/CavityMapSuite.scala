@@ -1,4 +1,4 @@
-package hackerrank.challenges
+package challenges
 
 import org.scalatest.{FunSuite, Matchers}
 import matchers.SystemIOStringMatcher

@@ -1,4 +1,4 @@
-package hackerrank.challenges
+package challenges
 
 import scala.collection.mutable
 
